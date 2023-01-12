@@ -8,7 +8,6 @@ import speakersThumb from "../assets/shared/desktop/image-category-thumbnail-spe
 import earphonesThumb from "../assets/shared/desktop/image-category-thumbnail-earphones.png"
 import yx1 from "../assets/home/mobile/image-earphones-yx1.jpg"
 import zx9 from "../assets/home/mobile/image-speaker-zx9.png"
-
 import bestGearImg from "../assets/shared/mobile/image-best-gear.jpg"
 import rightArrow from "../assets/shared/desktop/icon-arrow-right.svg"
 
