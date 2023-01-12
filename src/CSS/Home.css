@@ -9,13 +9,14 @@
 
 .hero-wrapper{
     background-color: #191919;
+    margin: 0 auto;
 }
 
 .hero{
     background-image: url("../assets/home/mobile/image-header.jpg");
     background-repeat: no-repeat;
     background-size: contain;
-    max-width: 1100px;
+    max-width: 1100px2;
     background-position:bottom;
     text-align: center;
     padding: 80px 2.5rem;
