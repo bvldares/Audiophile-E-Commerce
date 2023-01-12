@@ -1,0 +1,337 @@
+
+
+.padding-wrapper{
+    padding:0 1.5rem;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-wrapper{
+    background-color: #191919;
+}
+
+.hero{
+    background-image: url("../assets/home/mobile/image-header.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 1100px;
+    background-position:bottom;
+    text-align: center;
+    padding: 80px 2.5rem;
+}
+
+.hero-title{
+    font-size: 2.125rem;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle{
+    font-size: 14px;
+    letter-spacing: 10px;
+    color: #fff;
+}
+
+.hero-description{
+    color: #fff;
+    font-size: .938rem;
+    font-weight: 300;
+    line-height: 25px;
+}
+
+.hero-redirect{
+    display: inline-block;
+    margin:1.75rem 0;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: .813rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    background-color: var(--orange);
+}
+
+.products-collection{
+    margin: 110px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.product-category{
+    background-color:var(--grey);
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    width: 100%;
+    padding-top: 88px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.product-category-img{
+   height: 120px;
+   position: absolute;
+   bottom: 90px;
+}
+
+.product-category-title{
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.product-category-redirect{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+}
+
+.product-category-redirect img{
+    margin-left: .5rem;
+}
+
+.zx9{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding:3.5rem 1.5rem;
+    background-color: var(--orange);
+    border-radius: 8px;
+    background-image: url("../assets/home/desktop/pattern-circles.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+
+}
+
+.zx9-img{width: 174px;}
+
+.zx9-title{
+    font-size:2.125rem;
+    color: #fff;
+    margin: 1.5rem ;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.zx9-description{
+    font-size:.938rem;
+    color: #FFF;
+    margin-bottom: 2.5rem;
+}
+
+.zx9-redirect{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--pure-black);
+    padding: 1rem 2rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: .813rem;
+}
+
+.zx7{
+    background-image: url("../assets/home/mobile/image-speaker-zx7.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    padding: 101px 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+
+.zx7-title,
+.yx1-title{
+    font-size:1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.zx7-redirect,
+.yx1-redirect{
+    border: 1px solid #000;
+    padding: .936rem 1.75rem;
+    font-size: .813rem;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--pure-black);
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.yx1-img, 
+.yx1-content{
+    border-radius: 8px;
+}
+
+
+.yx1-content{
+    padding:2.5rem 1.5rem;
+    background-color: var(--grey);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.outro{
+    margin: 120px 0;
+}
+
+.outro img{
+    border-radius: 8px;
+}
+
+.outro-content{
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.outro-title{
+    text-transform: uppercase;
+    font-size:1.75rem;
+    line-height: 35px;
+    margin-bottom: 2rem;
+}
+
+.outro-title-span{
+    color:var(--orange);
+
+}
+
+
+
+
+@media(min-width:600px){
+    .hero{
+        background-image: url("../assets/home/tablet/image-header.jpg");
+        background-size: 70%;
+        background-color: #191919;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3rem;
+    }
+
+    .hero-subtitle{
+        color: var(--grey);
+    }
+
+    .hero-title{
+        font-size:3.5rem;
+        line-height: 58px;
+    }
+
+    .hero-description,
+    .zx9-description{
+        max-width: 350px;
+    }
+
+    .products-collection{
+        flex-direction: row;
+        justify-content: space-between;
+        margin:96px 0;
+    }
+
+    .product-category{
+        width: 32%;
+    }
+    
+
+    
+
+    .zx9-img{
+        content: url("../assets//home/tablet/image-speaker-zx9.png");
+    }
+
+    .zx9-title{
+        font-size:3.5rem;
+        line-height: 58px;
+    }
+
+
+    .zx7{
+        background-image: url("../assets/home/tablet/image-speaker-zx7.jpg");
+        padding-left: 4rem;
+    }
+
+    .yx1{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .yx1-img{
+        content: url("../assets/home/tablet/image-earphones-yx1.jpg");
+        width: 49%;
+    }
+
+    .yx1-content{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 49%;
+        padding-left: 2.5rem;
+    }
+
+    .outro{
+        margin: 90px 0;
+    }
+
+    .outro-img{
+        content: url("../assets/shared/tablet/image-best-gear.jpg");
+    }
+
+    .outro-content{
+        max-width: 570px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 65px;
+    }
+
+    .outro-title{
+        font-size: 2.5rem;
+        padding: 0 2em;
+        letter-spacing: 1.43px;
+        line-height: 44px;
+    }
+
+
+}
+
+
+@media(min-width:700px){
+    .padding-wrapper{
+        padding:0 2.5rem;
+    }
+}
+
+
+@media(min-width:900px){
+    .hero{
+        background-image: url("../assets/home/desktop/image-hero.jpg");
+        background-size: cover;
+        background-position:bottom right;
+        background-color: #191919;
+    }
+}
+
+@media(min-width:1200px){
+    .padding-wrapper{
+        padding:0rem;
+    }
+}
