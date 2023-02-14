@@ -49,7 +49,7 @@ export default function Home(props){
                 </div>
             </section>
 
-            <div className="mt-24">
+            <div className="my-24">
                 <Outro  size={size} />
             </div>
 

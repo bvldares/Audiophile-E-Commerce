@@ -3,7 +3,7 @@ export default function Outro(props){
     return (
         <section className="text-center flex flex-col items-center lg:flex-row-reverse lg:justify-between lg:gap-5 lg:text-left">
             <img 
-                id="outro-img" className="outro-img rounded-[16px]"
+                id="outro-img" className="outro-img lg:w-[50%] rounded-[16px]"
                 src={`/assets/shared/${props.size}/image-best-gear.jpg`}
                 alt="guy wearing headphones" />
             <div className="max-w-[570px] lg:max-w-[445px]">

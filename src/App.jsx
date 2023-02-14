@@ -20,7 +20,7 @@ export default function App() {
     window.addEventListener("resize", handleWidth)
   },[size])
 
-  const device = size > 1024 ? "desktop" : size > 630 ? "tablet" : "mobile"
+  const device = size > 1024 ? "desktop" : size > 768 ? "tablet" : "mobile"
 
 
   return(
@@ -31,9 +31,8 @@ export default function App() {
           <Route exact path="/" element={<Home size={device}/>} />
           <Route path="/:productSlug" element={<ProductDetail size={device}/>} />
       </Routes>
-      
-      
     </div>
+    <Footer />
     
     </>
   )
