@@ -4,9 +4,9 @@ export default function Footer(){
     return (
         
         <footer className="bg-light-black text-white">
-            <div className="max-w-[1100px] pt-12 pb-9 px-6 mx-auto flex flex-col items-center md:items-start md:p-10">
+            <div className="max-w-[1100px] pt-12 pb-9 px-6 mx-auto flex flex-col items-center md:items-start md:p-10 xl:px-0">
                 <div className="text-center w-full md:text-left flex flex-col items-center justify-between lg:flex-row md:items-start lg:items-center">
-                    <Link to="/"><img src="/assets/shared/desktop/logo.svg" alt="logo audiophile" /></Link>
+                    <Link to="/"><img src="/assets/shared/desktop/logo.svg" alt="logo audiophile"/></Link>
                     <ul className="flex flex-col gap-4 my-10 uppercase tracking-[2px] font-bold md:flex-row">
                         <li className="hover:text-terra"><Link to="/">Home</Link></li>
                         <li className="hover:text-terra"><Link to="/headphones">Headphones</Link></li>

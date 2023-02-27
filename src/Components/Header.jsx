@@ -20,9 +20,9 @@ export default function Header(props){
                 {props.size > 1023 && 
                     <ul className="flex gap-9 font-medium text-white tracking-[2px] text-[13px] ">
                         <li><Link to="/">HOME</Link></li>
-                        <li><Link to="/headphones">HEADPHONES</Link></li>
-                        <li><Link to="/speakers">SPEAKERS</Link></li>
-                        <li><Link to="/earphones">EARPHONES</Link></li>
+                        <li><Link to="/product/headphones">HEADPHONES</Link></li>
+                        <li><Link to="/product/speakers">SPEAKERS</Link></li>
+                        <li><Link to="/product/earphones">EARPHONES</Link></li>
                     </ul>
                 }
 

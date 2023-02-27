@@ -22,7 +22,7 @@ export default function Home(props){
                 </div>
             </section>
 
-            <div className="max-w-[1100px] mx-auto px-6 md:px-10 max:px-0">
+            <div className="max-w-[1100px] mx-auto px-6 md:px-10 xl:px-0">
             <section className="mt-20 mb-[120px] md:my-[96px] lg:mt-[160px] lg:mb-[96px]">
                 <ProductNavigator/>
             </section>

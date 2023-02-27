@@ -9,6 +9,8 @@ import Footer from "./Components/Footer"
 import Home from "./Pages/Home"
 import Checkout from "./Pages/Checkout"
 import ProductDetail from "./Pages/ProductDetail"
+import ProductCategory from "./Pages/Headphones"
+import Headphones from "./Pages/Headphones"
 
 
 export default function App() {
@@ -30,6 +32,7 @@ export default function App() {
       <Routes>
           <Route exact path="/" element={<Home size={device}/>} />
           <Route path="/:productSlug" element={<ProductDetail size={device}/>} />
+          <Route path="/product/:productCategory" element={<Headphones size={device} /> }/>
       </Routes>
     </div>
     <Footer />
