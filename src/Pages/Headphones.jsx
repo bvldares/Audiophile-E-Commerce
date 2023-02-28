@@ -28,12 +28,12 @@ export default function Headphones(props){
     return (
         <div className="max-w-[1100px] mx-auto px-6 md:px-10 xl:px-0  mt-[64px] md:mt-30 lg:mt-40">
         
-        <div className="flex flex-col-reverse gap-32 lg:gap-40">
+        <div className="flex flex-col-reverse gap-32 lg:gap-40 ">
             {productEl}
         </div>
 
        
-        <section className="mb-32 mt-36  lg:mt-48 lg:mb-40">
+        <section className="mb-32 mt-36  lg:mt-[220px] lg:mb-40">
             <ProductNavigator/>
         </section>
 

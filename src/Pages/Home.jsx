@@ -15,10 +15,10 @@ export default function Home(props){
                      md:bg-[url('/assets/home/tablet/image-header.jpg')] 
                      lg:bg-[url('/assets/home/desktop/image-header.jpg')]" 
                 `}>
-                    <span className="tracking-[10px] text-[.875rem] uppercase opacity-50">New Product</span>
+                    <span className="tracking-[10px] text-[.875rem] uppercase opacity-50 z-0">New Product</span>
                     <h1 className="text-4xl md:text-[56px] md:leading-[58px] font-bold tracking-wider uppercase mt-4 mb-6">XX99 Mark II <br /> Headphones</h1>
                     <p className="max-w-[350px]">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-                    <Link className="px-8 py-3 mt-6 bg-terra uppercase tracking-wide font-semibold" to="/xx99-mark-one-headphones">See product</Link>
+                    <Link className="px-8 py-3 mt-6 bg-terra uppercase tracking-wide font-semibold" to="/xx99-mark-two-headphones">See product</Link>
                 </div>
             </section>
 

@@ -9,6 +9,7 @@ import ProductNavigator from "../Components/ProductNavigator"
 export default function ProductDetail(props){
     let {productSlug} = useParams()
     const[count, setCount] = useState(0)
+    
 
     const currentProduct = data.find(prod => prod.slug == productSlug)
 
@@ -21,6 +22,8 @@ export default function ProductDetail(props){
             </div>
         )
     })
+
+   
 
 
 
@@ -40,7 +43,7 @@ export default function ProductDetail(props){
                             <p className="mx-5 w-fit p-4">{count}</p>
                             <button className="p-4" onClick={()=>setCount(p=>p+1)}>+</button>
                         </div>
-                        <button className="px-8 py-4 uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px]" >add to cart</button>
+                        <button className="px-8 py-4 uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px]" onClick={()=>props.addToCart(currentProduct, count)}>add to cart</button>
                    </div>
                 </div>
             </section>
@@ -71,7 +74,7 @@ export default function ProductDetail(props){
                 </div>
             </section>
 
-            <section>
+            <section className="mt-[170px] md:mt-[200px] lg:mt-[250px]">
                 <ProductNavigator />
             </section>
 
