@@ -9,9 +9,9 @@ export default function Footer(){
                     <Link to="/"><img src="/assets/shared/desktop/logo.svg" alt="logo audiophile"/></Link>
                     <ul className="flex flex-col gap-4 my-10 uppercase tracking-[2px] font-bold md:flex-row">
                         <li className="hover:text-terra"><Link to="/">Home</Link></li>
-                        <li className="hover:text-terra"><Link to="/headphones">Headphones</Link></li>
-                        <li className="hover:text-terra"><Link to="speakers">Speakers</Link></li>
-                        <li className="hover:text-terra"><Link to="earphones">Earphones</Link></li>
+                        <li className="hover:text-terra"><Link to="/product/headphones">Headphones</Link></li>
+                        <li className="hover:text-terra"><Link to="/product/speakers">Speakers</Link></li>
+                        <li className="hover:text-terra"><Link to="/product/earphones">Earphones</Link></li>
                     </ul>
                 </div>
 
@@ -27,11 +27,10 @@ export default function Footer(){
                     </div>
                     
                     <ul className="flex gap-4 md:self-end lg:self-center">
-                        <li><a href="#"><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-facebook.svg" alt="" /></a></li>
-                        <li><a href="#"><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-twitter.svg" alt="" /></a></li>
-                        <li><a href="#"><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-instagram.svg" alt="" /></a></li>
+                        <li><a href=""><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-facebook.svg" alt="" /></a></li>
+                        <li><a href=""><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-twitter.svg" alt="" /></a></li>
+                        <li><a href=""><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-instagram.svg" alt="" /></a></li>
                     </ul>
-                    
                 </div>
             </div>
         </footer>

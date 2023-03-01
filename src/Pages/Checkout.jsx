@@ -15,26 +15,26 @@ export default function Checkout(){
 
 
     return (
-        <main className="mx-auto max-w-[1100px] px-6 md:px-10 xl:px-0 ">
+        <main>
             <Link className="mx-2 md:mx-6 xl:mx-0 p-4 inline-block opacity-50 cursor-pointer" to="/">Go Back</Link>
-            <div className="lg:flex lg:flex-row">
-                <form className="p-6 md:p-8 lg:px-12 lg:py-[54px] rounded-lg font-semibold max-w-[730px]" action="">
+            <div className="flex flex-col items-center md:items-start lg:flex-row justify-between gap-2 xl:gap-10 mx-auto max-w-[1100px] px-6 md:px-10 xl:px-0 mb-20 md:mb-28">
+                <form className="p-6 md:p-10 bg-white rounded-lg font-semibold lg:w-[600px] xl:w-full " action="">
                     <h2 className="text-[28px] md:text-[32px] uppercase tracking-[1.15px]">Checkout</h2>
                     <h4 className="text-terra text-[13px] tracking-[1px] uppercase mt-10 mb-4">billing details</h4>
                     <fieldset> {/*PERSON INFO SECTION*/}
                         <div className="flex flex-col md:flex-row gap-4 justify-between">
-                            <div className="flex flex-col items-start gap-2 md:w-[309px]">
+                            <div className="flex flex-col items-start gap-2 w-full">
                                 <label className="text-[12px]" htmlFor="name">Name</label>
                                 <input className="py-[18px] px-6 border  rounded-lg w-full border-[grey] invalid:border-[red]" placeholder="Alexei Ward" type="text" id="name" value={name} onChange={(e)=>setName(e.target.value)} />
                             </div>
-                            <div className="flex flex-col items-start gap-2 md:w-[309px]">
+                            <div className="flex flex-col items-start gap-2 w-full">
                                 <label className="text-[12px]" htmlFor="email">Email</label>
                                 <input className="py-[18px] px-6 border border-[grey] rounded-lg w-full invalid:border-[red]" value={mail} onChange={(e)=>setMail(e.target.value)} placeholder="Alexei@mail.com"/>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 items-start mt-4">
                             <label className="text-[12px]" htmlFor="phone">Phone Number</label>
-                            <input className="py-[18px] px-6 border rounded-lg w-full max-w-[309px] border-[grey]" value={phone} type="number" onChange={(e)=>setPhone(e.target.value)} placeholder="+1 202-555-0136" />
+                            <input className="py-[18px] px-6 border rounded-lg w-full md:w-1/2 border-[grey]" value={phone} type="number" onChange={(e)=>setPhone(e.target.value)} placeholder="+1 202-555-0136" />
                         </div>
                     </fieldset>
                 
@@ -42,22 +42,22 @@ export default function Checkout(){
                     <fieldset> {/*ADDRESS SECTION*/}
                         <div className="flex flex-col gap-2 items-start mt-4">
                             <label className="text-[12px]" htmlFor="address">Address</label>
-                            <input className="py-[18px] px-6 border rounded-lg w-full border-[grey]" value={address} type="text" onChange={(e)=>setAddress(e.target.value)} required />
+                            <input className="py-[18px] px-6 border rounded-lg w-full border-[grey] " value={address} type="text" onChange={(e)=>setAddress(e.target.value)} placeholder="1137 Williams Avenue" required />
                         </div>
-                        <div className="flex flex-col md:flex-row my-4 gap-4 justify-between">
+                        <div className="flex flex-col sm:flex-row my-4 gap-4">
                             <div className="flex flex-col items-start gap-2" >
                                 <label className="text-[12px]" htmlFor="zip">Zip Code</label>
-                                <input className="py-[18px] px-6 border rounded-lg w-full md:w-[309px] border-[grey]" value={zip} onChange={(e)=>setZip(e.target.value)} placeholder="10001"  required />
+                                <input className="py-[18px] px-6 border rounded-lg w-full border-[grey]" value={zip} onChange={(e)=>setZip(e.target.value)} placeholder="10001"  required />
                             </div>
                             <div className="flex flex-col items-start gap-2">
                                 <label className="text-[12px]" htmlFor="zip">City</label>
-                                <input className="py-[18px] px-6 border rounded-lg w-full md:w-[309px] border-[grey]" value={city} onChange={(e)=>setCity(e.target.value)} placeholder="New York"  required/>
+                                <input className="py-[18px] px-6 border rounded-lg w-full border-[grey]" value={city} onChange={(e)=>setCity(e.target.value)} placeholder="New York"  required/>
                             </div>
                         </div>
                     </fieldset>
 
                     <h4 className="text-terra text-[13px] tracking-[1px] uppercase mt-10 mb-4 text-center sm:text-left">Payment Method</h4>
-                    <fieldset className="flex flex-col items-center gap-3 sm:grid sm:grid-cols-2 md:flex md:flex-row sm:justify-between whitespace-nowrap">
+                    <fieldset className="flex flex-col items-center gap-3 sm:grid sm:grid-cols-2 xl:flex xl:flex-row sm:justify-between whitespace-nowrap">
                         <div className="flex gap-3 w-fit ">
                             <input className="appearance-none" type="radio" name="payment-method" id="bitcoin"  onChange={(e)=>setMethod(e.target.id)} />
                             <label className="flex gap-2 items-center  border border-grey checked:border-red px-8 py-4 rounded-lg" htmlFor="bitcoin">Bitcoin <svg className="w-[1rem]" viewBox="0.004 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M63.04 39.741c-4.274 17.143-21.638 27.575-38.783 23.301C7.12 58.768-3.313 41.404.962 24.262 5.234 7.117 22.597-3.317 39.737.957c17.144 4.274 27.576 21.64 23.302 38.784z" fill="#f7931a"></path><path d="M46.11 27.441c.636-4.258-2.606-6.547-7.039-8.074l1.438-5.768-3.512-.875-1.4 5.616c-.922-.23-1.87-.447-2.812-.662l1.41-5.653-3.509-.875-1.439 5.766c-.764-.174-1.514-.346-2.242-.527l.004-.018-4.842-1.209-.934 3.75s2.605.597 2.55.634c1.422.355 1.68 1.296 1.636 2.042l-1.638 6.571c.098.025.225.061.365.117l-.37-.092-2.297 9.205c-.174.432-.615 1.08-1.609.834.035.051-2.552-.637-2.552-.637l-1.743 4.02 4.57 1.139c.85.213 1.683.436 2.502.646l-1.453 5.835 3.507.875 1.44-5.772c.957.26 1.887.5 2.797.726L27.504 50.8l3.511.875 1.453-5.823c5.987 1.133 10.49.676 12.383-4.738 1.527-4.36-.075-6.875-3.225-8.516 2.294-.531 4.022-2.04 4.483-5.157zM38.087 38.69c-1.086 4.36-8.426 2.004-10.807 1.412l1.928-7.729c2.38.594 10.011 1.77 8.88 6.317zm1.085-11.312c-.99 3.966-7.1 1.951-9.083 1.457l1.748-7.01c1.983.494 8.367 1.416 7.335 5.553z" fill="#ffffff"></path></g></svg> </label>
@@ -91,9 +91,32 @@ export default function Checkout(){
 
 
                 </form>
-                <section>
+                <section className="py-8 px-6 md:p-8 flex flex-col min-w-[350px] bg-white rounded-lg">
+                    <h3 className="uppercase tracking-[1.4px] mb-9 font-bold">Summary</h3>
 
+                    <div>
+
+                    </div>
+
+                    <div className="flex justify-between items-center mb-2">
+                        <h4 className="opacity-50 uppercase text-[15px]">total</h4>
+                        <p className="font-bold text-lg">€ 500</p>
+                    </div>
+                    <div className="flex justify-between items-center mb-2">
+                        <h4 className="opacity-50 uppercase text-[15px]">shipping</h4>
+                        <p className="font-bold text-lg">30000</p>
+                    </div>
+                    <div className="flex justify-between items-center mb-4">
+                        <h4 className="opacity-50 uppercase text-[15px]">{`vat (included)`}</h4>
+                        <p className="font-bold text-lg">€ 500</p>
+                    </div>
+                    <div className="flex justify-between items-center mb-4">
+                        <h4 className="opacity-50 uppercase text-[15px]">Grand Total</h4>
+                        <p className="font-bold text-lg text-terra">€ 500</p>
+                    </div>
+                    <button className="py-4 text-center w-full uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px]">Continue & pay</button>
                 </section>
+               
             </div>
         </main>
     )

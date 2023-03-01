@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 import ProductNavigator from "./ProductNavigator";
 export default function Header(props){
 

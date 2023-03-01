@@ -25,7 +25,7 @@ export default function App() {
   const device = size > 1024 ? "desktop" : size > 768 ? "tablet" : "mobile"
 
   function addToCart(currentArr, count){
-    if(cartArray.length == 0) setCartArray(prev=> ([...prev, {id:currentArr.id,name:currentArr.name, price: currentArr.price, img:currentArr.image.mobile, count: count}]))
+      
 
     if(cartArray.every(item=>item.id === currentArr.id)){
       setCartArray(prev => prev.map(item=>{
@@ -52,7 +52,7 @@ export default function App() {
   console.log(cartArray)
 
   return(
-    <>
+    <div className="bg-light-grey">
     <Header size={size} cart={cartArray} />
     <div  className="mx-auto">
       <Routes>
@@ -64,7 +64,7 @@ export default function App() {
     </div>
     <Footer />
     
-    </>
+    </div>
   )
 }
 
