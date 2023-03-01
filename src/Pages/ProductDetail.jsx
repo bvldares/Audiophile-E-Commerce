@@ -8,7 +8,7 @@ import ProductNavigator from "../Components/ProductNavigator"
 
 export default function ProductDetail(props){
     let {productSlug} = useParams()
-    const[count, setCount] = useState(0)
+    const[count, setCount] = useState(1)
     
 
     const currentProduct = data.find(prod => prod.slug == productSlug)
@@ -39,11 +39,11 @@ export default function ProductDetail(props){
                     <h3 className="mt-6 mb-8 md:my-8 text-lg font-bold tracking-[1.3px]">$ {currentProduct.price.toLocaleString('US','us')}</h3>
                    <div className="flex gap-4">
                         <div className="flex justify-between">
-                            <button className="p-4" onClick={()=>setCount(p=>p-1)}>-</button>
+                            <button className="p-4" onClick={()=>setCount(p=>p == 1 ? 1 : p-1 )}>-</button>
                             <p className="mx-5 w-fit p-4">{count}</p>
                             <button className="p-4" onClick={()=>setCount(p=>p+1)}>+</button>
                         </div>
-                        <button className="px-8 py-4 uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px]" onClick={()=>props.addToCart(currentProduct, count)}>add to cart</button>
+                        <button className="px-8 py-4 uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px] " onClick={()=>props.addToCart(currentProduct, count)}>add to cart</button>
                    </div>
                 </div>
             </section>

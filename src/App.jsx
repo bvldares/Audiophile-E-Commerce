@@ -12,7 +12,6 @@ import ProductDetail from "./Pages/ProductDetail"
 import ProductCategory from "./Pages/Headphones"
 import Headphones from "./Pages/Headphones"
 
-
 export default function App() {
 
   const[size, setSize] = useState(window.innerWidth)
@@ -20,15 +19,35 @@ export default function App() {
 
   useEffect(()=>{
     const handleWidth = () => setSize(window.innerWidth)
-    
     window.addEventListener("resize", handleWidth)
   },[size])
 
   const device = size > 1024 ? "desktop" : size > 768 ? "tablet" : "mobile"
 
   function addToCart(currentArr, count){
-    setCartArray(prev=> ([...prev, {name:currentArr.name, price: currentArr.price, img:currentArr.image.mobile, count: count}]))
+    if(cartArray.length == 0) setCartArray(prev=> ([...prev, {id:currentArr.id,name:currentArr.name, price: currentArr.price, img:currentArr.image.mobile, count: count}]))
+
+    if(cartArray.every(item=>item.id === currentArr.id)){
+      setCartArray(prev => prev.map(item=>{
+        if(item.id === currentArr.id){
+          return {...item, count: item.count + count}
+        }}))
+    }else{
+      setCartArray(prev=> ([...prev, {id:currentArr.id,name:currentArr.name, price: currentArr.price, img:currentArr.image.mobile, count: count}]))
+      
+    }
+    
   }
+  
+
+
+
+
+
+
+
+
+
 
   console.log(cartArray)
 

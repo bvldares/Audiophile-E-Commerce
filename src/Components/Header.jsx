@@ -4,16 +4,28 @@ import ProductNavigator from "./ProductNavigator";
 export default function Header(props){
 
     const[open, setOpen] = useState(false)
-
     const[cartOpen, setCartOpen] = useState(false)
 
 
-    
-    const cartEl = props.cart ? props.cart.map(item =>{
+    const cartEl = props.cart.map(item=>{
         return (
-            <div></div>
-        )}) :
-        <h3>EMPTY CART</h3>
+            <div className="flex w-full items-center" key={item.id}>
+                <img className="w-[64px] h-[64px] rounded-lg object-cover" src={item.img} alt={item.name} />
+                <div className="ml-4 flex w-full justify-between">
+                    <div>
+                        <Link className="text-[15px] font-bold ">{item.name}</Link>
+                        <h5 className="text-sm font-semibold opacity-50">${item.price}</h5>
+                    </div>
+                    <div className="flex items-center justify-center bg-grey">
+                        <button className="p-3">-</button>
+                        <h5 className="p-3">{item.count}</h5>
+                        <button className="p-3">+</button>
+                    </div>
+                </div>
+            </div>
+        )
+    })
+
     
 
     
@@ -55,9 +67,9 @@ export default function Header(props){
                     </div>
 
 
-                    <div>
-                      
-                        
+                    <div className="mt-8 flex flex-col gap-6">
+                      {props.cart.length == 0  && <h3 className="p-6 text-center opacity-50 mt-8 text-[13px] uppercase tracking-widest">Empty cart</h3> }
+                      {props.cart && cartEl }
                     </div>
 
                     <div className="flex justify-between mt-8 mb-6">
