@@ -35,7 +35,7 @@ export default function ProductDetail(props){
                 <div className="flex flex-col justify-center ">
                     {currentProduct.new && <h3 className="text-terra tracking-[10px]">NEW PRODUCT</h3>}
                     <h1 className="text-3xl lg:text-[42px] lg:leading-10 font-bold tracking-[1.4px] my-6 md:mt-4 w-2/3 uppercase    " >{currentProduct.name}</h1>
-                    <p>{currentProduct.description}</p>
+                    <p className="max-w-[459px]">{currentProduct.description}</p>
                     <h3 className="mt-6 mb-8 md:my-8 text-lg font-bold tracking-[1.3px]">$ {currentProduct.price.toLocaleString('US','us')}</h3>
                    <div className="flex gap-4">
                         <div className="flex justify-between">

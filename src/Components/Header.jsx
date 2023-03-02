@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link,  } from "react-router-dom";
 import ProductNavigator from "./ProductNavigator";
+
 export default function Header(props){
 
     const[open, setOpen] = useState(false)
     const[cartOpen, setCartOpen] = useState(false)
-
-
+    
     const cartEl = props.cart.map(item=>{
         return (
             <div className="flex w-full items-center" key={item.id}>
@@ -16,19 +16,10 @@ export default function Header(props){
                         <Link className="text-[15px] font-bold ">{item.name}</Link>
                         <h5 className="text-sm font-semibold opacity-50">${item.price}</h5>
                     </div>
-                    <div className="flex items-center justify-center bg-grey">
-                        <button className="p-3">-</button>
-                        <h5 className="p-3">{item.count}</h5>
-                        <button className="p-3">+</button>
-                    </div>
                 </div>
             </div>
         )
     })
-
-    
-
-    
 
     return (
         <header className="bg-light-black py-8">
@@ -63,7 +54,7 @@ export default function Header(props){
                {cartOpen && <section className="absolute bg-white p-8 rounded-lg top-16 right-[24px] left-[24px] sm:left-auto md:right-[40px] xl:right-0 border border-grey z-50 sm:w-[375px]">
                     <div className="flex justify-between">
                         <h3>CART</h3>
-                        <button className="opacity-60 underline">Remove all</button>
+                        <button className="opacity-60 underline" onClick={props.cleanCart}>Remove all</button>
                     </div>
 
 
@@ -74,7 +65,7 @@ export default function Header(props){
 
                     <div className="flex justify-between mt-8 mb-6">
                         <p className="opacity-60">TOTAL</p>
-                        <strong className="text-lg">$1000</strong>
+                        <strong className="text-lg">$ {props.total}</strong>
                     </div>
                     <Link className="py-4 text-center w-full inline-block uppercase tracking-[1px] bg-terra hover:bg-terra-light text-white" onClick={()=>setCartOpen(!cartOpen)} to="/checkout">checkout</Link>
                 </section>}

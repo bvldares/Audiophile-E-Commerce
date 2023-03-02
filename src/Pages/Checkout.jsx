@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-export default function Checkout(){
+export default function Checkout({total,cart}){
     
     const [name,setName] = useState("")
     const [mail,setMail] = useState("")
@@ -13,7 +13,7 @@ export default function Checkout(){
     const [country, setCountry] = useState("")
     const [method, setMethod] = useState("cash")
 
-
+    console.log(cart)
     return (
         <main>
             <Link className="mx-2 md:mx-6 xl:mx-0 p-4 inline-block opacity-50 cursor-pointer" to="/">Go Back</Link>
@@ -60,7 +60,7 @@ export default function Checkout(){
                     <fieldset className="flex flex-col items-center gap-3 sm:grid sm:grid-cols-2 xl:flex xl:flex-row sm:justify-between whitespace-nowrap">
                         <div className="flex gap-3 w-fit ">
                             <input className="appearance-none" type="radio" name="payment-method" id="bitcoin"  onChange={(e)=>setMethod(e.target.id)} />
-                            <label className="flex gap-2 items-center  border border-grey checked:border-red px-8 py-4 rounded-lg" htmlFor="bitcoin">Bitcoin <svg className="w-[1rem]" viewBox="0.004 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M63.04 39.741c-4.274 17.143-21.638 27.575-38.783 23.301C7.12 58.768-3.313 41.404.962 24.262 5.234 7.117 22.597-3.317 39.737.957c17.144 4.274 27.576 21.64 23.302 38.784z" fill="#f7931a"></path><path d="M46.11 27.441c.636-4.258-2.606-6.547-7.039-8.074l1.438-5.768-3.512-.875-1.4 5.616c-.922-.23-1.87-.447-2.812-.662l1.41-5.653-3.509-.875-1.439 5.766c-.764-.174-1.514-.346-2.242-.527l.004-.018-4.842-1.209-.934 3.75s2.605.597 2.55.634c1.422.355 1.68 1.296 1.636 2.042l-1.638 6.571c.098.025.225.061.365.117l-.37-.092-2.297 9.205c-.174.432-.615 1.08-1.609.834.035.051-2.552-.637-2.552-.637l-1.743 4.02 4.57 1.139c.85.213 1.683.436 2.502.646l-1.453 5.835 3.507.875 1.44-5.772c.957.26 1.887.5 2.797.726L27.504 50.8l3.511.875 1.453-5.823c5.987 1.133 10.49.676 12.383-4.738 1.527-4.36-.075-6.875-3.225-8.516 2.294-.531 4.022-2.04 4.483-5.157zM38.087 38.69c-1.086 4.36-8.426 2.004-10.807 1.412l1.928-7.729c2.38.594 10.011 1.77 8.88 6.317zm1.085-11.312c-.99 3.966-7.1 1.951-9.083 1.457l1.748-7.01c1.983.494 8.367 1.416 7.335 5.553z" fill="#ffffff"></path></g></svg> </label>
+                            <label className="flex gap-2 items-center  border border-grey checked:border-red px-8 py-4 rounded-lg" htmlFor="bitcoin">Bitcoin <svg className="w-[1rem]" viewBox="0.004 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M63.04 39.741c-4.274 17.143-21.638 27.575-38.783 23.301C7.12 58.768-3.313 41.404.962 24.262 5.234 7.117 22.597-3.317 39.737.957c17.144 4.274 27.576 21.64 23.302 38.784z" fill="#f7931a"></path><path d="M46.11 27.441c.636-4.258-2.606-6.547-7.039-8.074l1.438-5.768-3.512-.875-1.4 5.616c-.922-.23-1.87-.447-2.812-.662l1.41-5.653-3.509-.875-1.439 5.766c-.764-.174-1.514-.346-2.242-.527l.004-.018-4.842-1.209-.934 3.75s2.605.597 2.55.634c1.422.355 1.68 1.296 1.636 2.042l-1.638 6.571c.098.025.225.061.365.117l-.37-.092-2.297 9.205c-.174.432-.615 1.08-1.609.834.035.051-2.552-.637-2.552-.637l-1.743 4.02 4.57 1.139c.85.213 1.683.436 2.502.646l-1.453 5.835 3.507.875 1.44-5.772c.957.26 1.887.5 2.797.726L27.504 50.8l3.511.875 1.453-5.823c5.987 1.133 10.49.676 12.383-4.738 1.527-4.36-.075-6.875-3.225-8.516 2.294-.531 4.022-2.04 4.483-5.157zM38.087 38.69c-1.086 4.36-8.426 2.004-10.807 1.412l1.928-7.729c2.38.594 10.011 1.77 8.88 6.317zm1.085-11.312c-.99 3.966-7.1 1.951-9.083 1.457l1.748-7.01c1.983.494 8.367 1.416 7.335 5.553z" fill="#ffffff"></path></g></svg> </label>
                         </div>
                         <div className="flex gap-3  w-fit rounded-lg">
                             <input className="appearance-none" type="radio" name="payment-method" id="cash" onChange={(e)=>setMethod(e.target.id)} />
@@ -95,24 +95,24 @@ export default function Checkout(){
                     <h3 className="uppercase tracking-[1.4px] mb-9 font-bold">Summary</h3>
 
                     <div>
-
+                        
                     </div>
 
                     <div className="flex justify-between items-center mb-2">
                         <h4 className="opacity-50 uppercase text-[15px]">total</h4>
-                        <p className="font-bold text-lg">€ 500</p>
+                        <p className="font-bold text-lg">€ {total}</p>
                     </div>
                     <div className="flex justify-between items-center mb-2">
                         <h4 className="opacity-50 uppercase text-[15px]">shipping</h4>
-                        <p className="font-bold text-lg">30000</p>
+                        <p className="font-bold text-lg">$ {cart.length * 20}</p>
                     </div>
                     <div className="flex justify-between items-center mb-4">
                         <h4 className="opacity-50 uppercase text-[15px]">{`vat (included)`}</h4>
-                        <p className="font-bold text-lg">€ 500</p>
+                        <p className="font-bold text-lg">$ {(total * 0.23).toFixed(2)}</p>
                     </div>
                     <div className="flex justify-between items-center mb-4">
                         <h4 className="opacity-50 uppercase text-[15px]">Grand Total</h4>
-                        <p className="font-bold text-lg text-terra">€ 500</p>
+                        <p className="font-bold text-lg text-terra">€ {total + (cart.length * 20)}</p>
                     </div>
                     <button className="py-4 text-center w-full uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px]">Continue & pay</button>
                 </section>
