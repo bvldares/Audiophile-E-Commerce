@@ -11,9 +11,10 @@ export default function Home(props){
         <main>
             <section className="bg-light-black">
                 <div className={` max-w-[1100px] mx-auto  flex flex-col items-center  lg:items-start lg:text-left pt-14 pb-28 px-6 lg:px-10 xl:px-0 text-center text-white
-                     bg-[url('/assets/home/mobile/image-header.jpg')] bg-[center] bg-cover bg-no-repeat bg-origin-content lg:bg-contain lg:bg-right
+                     bg-[url('/assets/home/mobile/image-header.jpg')] bg-[center] bg-cover bg-no-repeat bg-origin-content 
                      md:bg-[url('/assets/home/tablet/image-header.jpg')] 
-                     lg:bg-[url('/assets/home/desktop/image-header.jpg')]" 
+                     lg:bg-[url('/assets/home/desktop/image-header.jpg')] lg:bg-contain" lg:bg-[150px_-100px] xl:bg-[150px_-150px]
+                    bg-[#191919]
                 `}>
                     <span className="tracking-[10px] text-[.875rem] uppercase opacity-50 z-0">New Product</span>
                     <h1 className="text-4xl md:text-[56px] md:leading-[58px] font-bold tracking-wider uppercase mt-4 mb-6">XX99 Mark II <br /> Headphones</h1>

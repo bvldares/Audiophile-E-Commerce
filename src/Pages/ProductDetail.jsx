@@ -23,8 +23,6 @@ export default function ProductDetail(props){
         )
     })
 
-   
-
 
 
     return (
@@ -32,7 +30,7 @@ export default function ProductDetail(props){
             <Link className="py-3 inline-block opacity-50" to="/">Go Back</Link>
             <section className="flex flex-col gap-8 md:flex-row md:justify-between md:gap-16 lg:gap-8 mb-20 md:mb-[120px] lg:mb-40"  > {/*Hero Section */}
                 <img className="rounded-lg md:max-w-[281px] lg:max-w-[540px]"  src={props.size === "desktop" ? currentProduct.image.desktop : props.size == "tablet" ? currentProduct.image.tablet : currentProduct.image.mobile} alt="product img" />
-                <div className="flex flex-col justify-center ">
+                <div className="flex flex-col justify-center ]">
                     {currentProduct.new && <h3 className="text-terra tracking-[10px]">NEW PRODUCT</h3>}
                     <h1 className="text-3xl lg:text-[42px] lg:leading-10 font-bold tracking-[1.4px] my-6 md:mt-4 w-2/3 uppercase    " >{currentProduct.name}</h1>
                     <p className="max-w-[459px]">{currentProduct.description}</p>

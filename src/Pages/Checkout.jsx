@@ -1,19 +1,53 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
-export default function Checkout({total,cart}){
-    
+export default function Checkout({total,cart,clear}){
+
+    const navigate = useNavigate()
     const [name,setName] = useState("")
     const [mail,setMail] = useState("")
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
     const [zip, setZip] = useState("")
     const [city, setCity] = useState("")
-    const [country, setCountry] = useState("")
     const [method, setMethod] = useState("cash")
+    const [dialog, setDialog] = useState(false)
+    
+    const openModal = (e) =>{
+    const input = document.querySelector("input")
+    
+    
+    if(input.value != ""){
+        document.querySelector("dialog").showModal()
+        setTimeout(()=>{
+            navigate("/")
+            
+        },3000)
+    }
+    }
+    const handleClose = () => {document.querySelector("dialog").close()}
+    
 
-    console.log(cart)
+
+
+    
+    const cartEl = cart.map(item=>{
+        return (
+            <div className="flex w-full items-center" key={item.id}>
+                <img className="w-[64px] h-[64px] rounded-lg object-cover" src={item.img} alt={item.name} />
+                <div className="ml-4 flex w-full items-center justify-between gap-10">
+                    <div>
+                        <Link className="text-[15px] font-bold ">{item.name}</Link>
+                        <h5 className="text-sm font-semibold opacity-50">${item.price}</h5>
+                    </div>
+                    <p>x{item.count}</p>
+                </div>
+            </div>
+        )
+    })
+
+
     return (
         <main>
             <Link className="mx-2 md:mx-6 xl:mx-0 p-4 inline-block opacity-50 cursor-pointer" to="/">Go Back</Link>
@@ -25,16 +59,16 @@ export default function Checkout({total,cart}){
                         <div className="flex flex-col md:flex-row gap-4 justify-between">
                             <div className="flex flex-col items-start gap-2 w-full">
                                 <label className="text-[12px]" htmlFor="name">Name</label>
-                                <input className="py-[18px] px-6 border  rounded-lg w-full border-[grey] invalid:border-[red]" placeholder="Alexei Ward" type="text" id="name" value={name} onChange={(e)=>setName(e.target.value)} />
+                                <input className="py-[18px] px-6 border  rounded-lg w-full border-[grey] invalid:border-[red]" placeholder="Alexei Ward" type="text" id="name" value={name} onChange={(e)=>setName(e.target.value)} required />
                             </div>
                             <div className="flex flex-col items-start gap-2 w-full">
                                 <label className="text-[12px]" htmlFor="email">Email</label>
-                                <input className="py-[18px] px-6 border border-[grey] rounded-lg w-full invalid:border-[red]" value={mail} onChange={(e)=>setMail(e.target.value)} placeholder="Alexei@mail.com"/>
+                                <input className="py-[18px] px-6 border border-[grey] rounded-lg w-full invalid:border-[red]" value={mail} onChange={(e)=>setMail(e.target.value)} placeholder="Alexei@mail.com" required/>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 items-start mt-4">
                             <label className="text-[12px]" htmlFor="phone">Phone Number</label>
-                            <input className="py-[18px] px-6 border rounded-lg w-full md:w-1/2 border-[grey]" value={phone} type="number" onChange={(e)=>setPhone(e.target.value)} placeholder="+1 202-555-0136" />
+                            <input className="py-[18px] px-6 border rounded-lg w-full md:w-1/2 border-[grey] invalid:border-[red]" value={phone} type="number" onChange={(e)=>setPhone(e.target.value)} placeholder="+1 202-555-0136" required />
                         </div>
                     </fieldset>
                 
@@ -42,16 +76,16 @@ export default function Checkout({total,cart}){
                     <fieldset> {/*ADDRESS SECTION*/}
                         <div className="flex flex-col gap-2 items-start mt-4">
                             <label className="text-[12px]" htmlFor="address">Address</label>
-                            <input className="py-[18px] px-6 border rounded-lg w-full border-[grey] " value={address} type="text" onChange={(e)=>setAddress(e.target.value)} placeholder="1137 Williams Avenue" required />
+                            <input className="py-[18px] px-6 border rounded-lg w-full border-[grey]  invalid:border-[red]" value={address} type="text" onChange={(e)=>setAddress(e.target.value)} placeholder="1137 Williams Avenue" required />
                         </div>
                         <div className="flex flex-col sm:flex-row my-4 gap-4">
                             <div className="flex flex-col items-start gap-2" >
                                 <label className="text-[12px]" htmlFor="zip">Zip Code</label>
-                                <input className="py-[18px] px-6 border rounded-lg w-full border-[grey]" value={zip} onChange={(e)=>setZip(e.target.value)} placeholder="10001"  required />
+                                <input className="py-[18px] px-6 border rounded-lg w-full border-[grey] invalid:border-[red]" id="zip" value={zip} onChange={(e)=>setZip(e.target.value)} placeholder="10001"  required />
                             </div>
                             <div className="flex flex-col items-start gap-2">
-                                <label className="text-[12px]" htmlFor="zip">City</label>
-                                <input className="py-[18px] px-6 border rounded-lg w-full border-[grey]" value={city} onChange={(e)=>setCity(e.target.value)} placeholder="New York"  required/>
+                                <label className="text-[12px]" htmlFor="city">City</label>
+                                <input className="py-[18px] px-6 border rounded-lg w-full border-[grey] invalid:border-[red]" id="city"  value={city} onChange={(e)=>setCity(e.target.value)} placeholder="New York"  required/>
                             </div>
                         </div>
                     </fieldset>
@@ -59,21 +93,21 @@ export default function Checkout({total,cart}){
                     <h4 className="text-terra text-[13px] tracking-[1px] uppercase mt-10 mb-4 text-center sm:text-left">Payment Method</h4>
                     <fieldset className="flex flex-col items-center gap-3 sm:grid sm:grid-cols-2 xl:flex xl:flex-row sm:justify-between whitespace-nowrap">
                         <div className="flex gap-3 w-fit ">
-                            <input className="appearance-none" type="radio" name="payment-method" id="bitcoin"  onChange={(e)=>setMethod(e.target.id)} />
+                            <input className="invalid:border-[red]"  type="radio" name="payment-method" required id="bitcoin"  onChange={(e)=>setMethod(e.target.id)} />
                             <label className="flex gap-2 items-center  border border-grey checked:border-red px-8 py-4 rounded-lg" htmlFor="bitcoin">Bitcoin <svg className="w-[1rem]" viewBox="0.004 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M63.04 39.741c-4.274 17.143-21.638 27.575-38.783 23.301C7.12 58.768-3.313 41.404.962 24.262 5.234 7.117 22.597-3.317 39.737.957c17.144 4.274 27.576 21.64 23.302 38.784z" fill="#f7931a"></path><path d="M46.11 27.441c.636-4.258-2.606-6.547-7.039-8.074l1.438-5.768-3.512-.875-1.4 5.616c-.922-.23-1.87-.447-2.812-.662l1.41-5.653-3.509-.875-1.439 5.766c-.764-.174-1.514-.346-2.242-.527l.004-.018-4.842-1.209-.934 3.75s2.605.597 2.55.634c1.422.355 1.68 1.296 1.636 2.042l-1.638 6.571c.098.025.225.061.365.117l-.37-.092-2.297 9.205c-.174.432-.615 1.08-1.609.834.035.051-2.552-.637-2.552-.637l-1.743 4.02 4.57 1.139c.85.213 1.683.436 2.502.646l-1.453 5.835 3.507.875 1.44-5.772c.957.26 1.887.5 2.797.726L27.504 50.8l3.511.875 1.453-5.823c5.987 1.133 10.49.676 12.383-4.738 1.527-4.36-.075-6.875-3.225-8.516 2.294-.531 4.022-2.04 4.483-5.157zM38.087 38.69c-1.086 4.36-8.426 2.004-10.807 1.412l1.928-7.729c2.38.594 10.011 1.77 8.88 6.317zm1.085-11.312c-.99 3.966-7.1 1.951-9.083 1.457l1.748-7.01c1.983.494 8.367 1.416 7.335 5.553z" fill="#ffffff"></path></g></svg> </label>
                         </div>
                         <div className="flex gap-3  w-fit rounded-lg">
-                            <input className="appearance-none" type="radio" name="payment-method" id="cash" onChange={(e)=>setMethod(e.target.id)} />
+                            <input className="invalid:border-[red]" type="radio" name="payment-method" required id="cash" onChange={(e)=>setMethod(e.target.id)} />
                             <label className="flex gap-2 items-center  border border-grey checked:border-red px-8 py-4 rounded-lg" htmlFor="cash">Cash<img src="/public/assets/money.png" alt="" /></label>
                         </div>
                        
                         <div className="flex gap-3  w-fit rounded-lg">
-                            <input className="appearance-none" type="radio" name="payment-method" id="paypal" onChange={(e)=>setMethod(e.target.id)} />
+                            <input className="invalid:border-[red]" type="radio" name="payment-method"  required id="paypal" onChange={(e)=>setMethod(e.target.id)} />
                             <label className="flex gap-2 items-center  border border-grey checked:border-red px-8 py-4 rounded-lg" htmlFor="paypal">PayPal<img className="w-[16px]" src="/public/assets/paypal.png" alt=""/></label>
                         </div>
 
                         <div className="flex gap-3  w-fit rounded-lg">
-                            <input className="appearance-none" type="radio" name="payment-method" id="creditcard" onChange={(e)=>setMethod(e.target.id)} />
+                            <input className="invalid:border-red" type="radio" name="payment-method" required id="creditcard" onChange={(e)=>setMethod(e.target.id)} />
                             <label className="flex gap-2 items-center  border border-grey checked:border-red px-8 py-4 rounded-lg" htmlFor="creditcard">Credit Card<img className="w-[16px]" src="/public/assets/credit-card.png" alt=""/></label>
                         </div>
 
@@ -88,14 +122,21 @@ export default function Checkout({total,cart}){
                                 Just make sure your address is correct so that your order will not be cancelled.</p>
                             </div>
                         }
+                    
+                    <button className="py-4 mt-8 text-center w-full uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px]" onClick={openModal}>Continue & pay</button>
 
 
                 </form>
+
+
+
+
+
                 <section className="py-8 px-6 md:p-8 flex flex-col min-w-[350px] bg-white rounded-lg">
                     <h3 className="uppercase tracking-[1.4px] mb-9 font-bold">Summary</h3>
 
-                    <div>
-                        
+                    <div className="flex flex-col gap-5 mb-8">
+                        {cartEl}
                     </div>
 
                     <div className="flex justify-between items-center mb-2">
@@ -114,8 +155,29 @@ export default function Checkout({total,cart}){
                         <h4 className="opacity-50 uppercase text-[15px]">Grand Total</h4>
                         <p className="font-bold text-lg text-terra">€ {total + (cart.length * 20)}</p>
                     </div>
-                    <button className="py-4 text-center w-full uppercase bg-terra hover:bg-terra-light text-white font-semibold tracking-[1px]">Continue & pay</button>
                 </section>
+
+                <dialog  className="absolute p-8 border border-grey rounded-lg backdrop:bg-black backdrop:opacity-80" isOpen={dialog} onClose={handleClose}>
+                    <img className="w-[64px]" src="/assets/checkout/icon-order-confirmation.svg" alt="done icon" />
+                    <h1 className="text-2xl md:text-[32px] leading-9 tracking-[1.14px] font-semibold uppercase mt-4">Thank you <br /> for your order</h1>
+                    <small className="text-[15px]">you will receive an email confirmation shortly</small>
+                    <div className="flex flex-col lg:flex-row lg:mb-6">
+                        <div className="mt-6 lg:mt-0 bg-[#e2e2e2] p-6 rounded-t-lg  lg:rounded-t-none lg:rounded-l-lg lg:rounded-tl-lg flex flex-col gap-3 ">
+                            {cartEl[0]}
+                            
+                            {cart.length > 1 && 
+                                <div className="text-center mt-3 ounded-b-lg border-t border-grey pt-6 ">
+                                    <p className="opacity-50 font-semibold">And other {cart.length -1} item(s) </p>
+                                </div>
+                            }
+                        </div>
+                        <div className="flex flex-col gap-2 bg-[#191919] text-[#d3d3d3] p-6 rounded-b-lg lg:rounded-b-none lg:rounded-br-lg lg:rounded-r-lg mb-6 lg:mb-0">
+                            <p className="uppercase tracking-[1.14px]">Grand Total</p>
+                            <h3 className="text-white">${total}</h3>
+                        </div>
+                    </div>
+                    <Link className="py-4 bg-terra hover:bg-terra-light uppercase tracking-[1.14px] inline-block text-white cursor-pointer w-full text-center" to="/" onClick={clear}>Back to home</Link>
+                </dialog>
                
             </div>
         </main>

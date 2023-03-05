@@ -11,11 +11,12 @@ export default function Header(props){
         return (
             <div className="flex w-full items-center" key={item.id}>
                 <img className="w-[64px] h-[64px] rounded-lg object-cover" src={item.img} alt={item.name} />
-                <div className="ml-4 flex w-full justify-between">
+                <div className="ml-4 flex w-full justify-between items-center">
                     <div>
                         <Link className="text-[15px] font-bold ">{item.name}</Link>
                         <h5 className="text-sm font-semibold opacity-50">${item.price}</h5>
                     </div>
+                    <p>x{item.count}</p>
                 </div>
             </div>
         )
@@ -67,7 +68,10 @@ export default function Header(props){
                         <p className="opacity-60">TOTAL</p>
                         <strong className="text-lg">$ {props.total}</strong>
                     </div>
-                    <Link className="py-4 text-center w-full inline-block uppercase tracking-[1px] bg-terra hover:bg-terra-light text-white" onClick={()=>setCartOpen(!cartOpen)} to="/checkout">checkout</Link>
+                    {props.cart.length > 0 ? 
+                    <Link className="py-4 text-center w-full inline-block uppercase tracking-[1px] disabled:cursor-not-allowed disabled:bg-grey bg-terra hover:bg-terra-light text-white"   onClick={()=>setCartOpen(!cartOpen)} to="/checkout">checkout</Link>
+                    : <p className="text-center bg-terra text-white py-4 cursor-not-allowed">Your cart is empty</p>
+                    }
                 </section>}
                
             </nav>
