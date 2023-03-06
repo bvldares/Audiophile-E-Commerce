@@ -23,7 +23,7 @@ export default function Checkout({total,cart,clear}){
         setTimeout(()=>{
             navigate("/")
             
-        },3000)
+        },5000)
     }
     }
     const handleClose = () => {document.querySelector("dialog").close()}
@@ -159,9 +159,9 @@ export default function Checkout({total,cart,clear}){
 
                 <dialog  className="absolute p-8 border border-grey rounded-lg backdrop:bg-black backdrop:opacity-80" isOpen={dialog} onClose={handleClose}>
                     <img className="w-[64px]" src="/assets/checkout/icon-order-confirmation.svg" alt="done icon" />
-                    <h1 className="text-2xl md:text-[32px] leading-9 tracking-[1.14px] font-semibold uppercase mt-4">Thank you <br /> for your order</h1>
-                    <small className="text-[15px]">you will receive an email confirmation shortly</small>
-                    <div className="flex flex-col lg:flex-row lg:mb-6">
+                    <h1 className="text-2xl md:text-[32px] leading-9 tracking-[1.14px] font-semibold uppercase my-4">Thank you <br /> for your order</h1>
+                    <small className="text-[15px] ">you will be redirected to home page in 5 seconds</small>
+                    <div className="flex flex-col lg:flex-row lg:mb-6 lg:mt-4">
                         <div className="mt-6 lg:mt-0 bg-[#e2e2e2] p-6 rounded-t-lg  lg:rounded-t-none lg:rounded-l-lg lg:rounded-tl-lg flex flex-col gap-3 ">
                             {cartEl[0]}
                             

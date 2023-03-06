@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function ShowcaseProduct(props){
     return (
-        <div className="flex flex-col gap-[32px] text-center lg:flex-row lg:justify-between lg:text-left z-50" >
+        <div className="flex flex-col gap-[32px] text-center lg:flex-row lg:justify-between lg:text-left z-50 " >
             <img className="basis-[40%] rounded-[16px] lg:max-w-[540px]" src={props.img} alt="product-image" />
             <div className="flex flex-col items-center md:mb-[2rem] lg:items-start lg:justify-center lg:basis-[40%]">
                 {props.isNew && <span className="tracking-[10px] uppercase text-terra">new product</span>}
