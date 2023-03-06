@@ -52,7 +52,7 @@ export default function Checkout({total,cart,clear}){
         <main>
             <Link className="mx-2 md:mx-6 xl:mx-0 p-4 inline-block opacity-50 cursor-pointer" to="/">Go Back</Link>
             <div className="flex flex-col items-center md:items-start lg:flex-row justify-between gap-2 xl:gap-10 mx-auto max-w-[1100px] px-6 md:px-10 xl:px-0 mb-20 md:mb-28">
-                <form className="p-6 md:p-10 bg-white rounded-lg font-semibold lg:w-[600px] xl:w-full " action="">
+                <form className="p-6 md:p-10 bg-white rounded-lg font-semibold lg:w-[600px] w-full " action="">
                     <h2 className="text-[28px] md:text-[32px] uppercase tracking-[1.15px]">Checkout</h2>
                     <h4 className="text-terra text-[13px] tracking-[1px] uppercase mt-10 mb-4">billing details</h4>
                     <fieldset> {/*PERSON INFO SECTION*/}
