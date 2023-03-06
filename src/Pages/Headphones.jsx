@@ -13,7 +13,7 @@ export default function Headphones(props){
     const productEl = productArray.map(element =>{
         return ( 
             <div className="flex flex-col gap-8 lg:flex-row lg:gap-32" key={element.id}>
-                <img className="rounded-lg w-full lg:w-1/2" src={props.size == "desktop" ? element.categoryImage.desktop : props.size == "tablet" ? element.categoryImage.tablet : element.categoryImage.desktop} alt={element.name} />
+                <img className="rounded-lg w-full lg:w-1/2" src={`/public/${props.size == "desktop" ? element.categoryImage.desktop : props.size == "tablet" ? element.categoryImage.tablet : element.categoryImage.desktop }`} alt={element.name} />
             
                 <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:object-cover lg:justify-center">
                     {element.new && <h3 className="tracking-[10px] uppercase text-terra mb-6 md:mb-4">New product</h3>}
