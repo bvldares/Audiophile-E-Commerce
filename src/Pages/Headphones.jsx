@@ -10,21 +10,19 @@ export default function Headphones(props){
 
     const productArray = data.filter(product => product.category === productCategory )
 
-    const productEl = data.map(element =>{
-        if(element.category == productCategory){
-            return ( 
-                <div className="flex flex-col gap-8 lg:flex-row lg:gap-32" key={element.id}>
-                    <img className="rounded-lg w-full lg:w-1/2" src={`/public/${props.size == "desktop" ? element.image.desktop : props.size == "tablet" ? element.image.tablet : element.image.desktop }`} alt={element.name} />
-                
-                    <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:object-cover lg:justify-center">
-                        {element.new && <h3 className="tracking-[10px] uppercase text-terra mb-6 md:mb-4">New product</h3>}
-                        <h2 className="text-3xl md:text-[40px] leading-[44px] tracking-[1.4px] font-bold uppercase mb-6 md:mb-8">{element.name}</h2>
-                        <p className="max-w-[570px]">{element.description}</p>
-                        <Link className="mt-6 lg:mb-10 px-8 py-4 uppercase bg-terra hover:bg-terra-light inline-block text-white" to={`/${element.slug}`}>See product</Link>
-                    </div>
+    const productEl = productArray.map(element =>{
+        return ( 
+            <div className="flex flex-col gap-8 lg:flex-row lg:gap-32" key={element.id}>
+                <img className="rounded-lg w-full lg:w-1/2" src={props.size == "desktop" ? element.image.desktop : props.size == "tablet" ? element.image.tablet : element.image.desktop} alt={element.name} />
+            
+                <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:object-cover lg:justify-center">
+                    {element.new && <h3 className="tracking-[10px] uppercase text-terra mb-6 md:mb-4">New product</h3>}
+                    <h2 className="text-3xl md:text-[40px] leading-[44px] tracking-[1.4px] font-bold uppercase mb-6 md:mb-8">{element.name}</h2>
+                    <p className="max-w-[570px]">{element.description}</p>
+                    <Link className="mt-6 lg:mb-10 px-8 py-4 uppercase bg-terra hover:bg-terra-light inline-block text-white" to={`/${element.slug}`}>See product</Link>
                 </div>
-            )
-        }
+            </div>
+        )
     })
 
     
