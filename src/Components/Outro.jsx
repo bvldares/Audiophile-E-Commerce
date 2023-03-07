@@ -8,7 +8,7 @@ export default function Outro(props){
                 alt="guy wearing headphones" />
             <div className="max-w-[570px] lg:max-w-[445px]">
                 <h2 className="text-3xl uppercase font-bold tracking-[1px] mt-8 mb-6 md:text-[2.5rem] md:leading-[44px]  ">Bringing you the <span className="text-terra">best</span> audio gear</h2>
-                <p className="opacity-[50%]">
+                <p className="opacity-[70%]">
                     Located at the heart of New York City, 
                     Audiophile is the premier store for high end headphones, 
                     earphones, speakers, and audio accessories. We have a large 
