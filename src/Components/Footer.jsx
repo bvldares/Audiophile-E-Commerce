@@ -27,9 +27,9 @@ export default function Footer(){
                     </div>
                     
                     <ul className="flex gap-4 md:self-end lg:self-center">
-                        <li><Link to="/"><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-facebook.svg" alt="" /></Link></li>
-                        <li><Link to="/"><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-twitter.svg" alt="" /></Link></li>
-                        <li><Link to="/"><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-instagram.svg" alt="" /></Link></li>
+                        <li><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-facebook.svg" alt="facebook icon" /></li>
+                        <li><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-twitter.svg" alt="twitter icon" /></li>
+                        <li><img className="min-h-[24px] min-w-[24px]" src="/assets/shared/desktop/icon-instagram.svg" alt="ig icon" /></li>
                     </ul>
                 </div>
             </div>
